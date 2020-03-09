@@ -1,0 +1,19 @@
+/* global styles */
+@import 'global-vars.style.scss';
+@import "~bootstrap/dist/css/bootstrap.css";
+
+html, body {
+	padding: 0;
+	margin: 0 auto;
+	width: 100%;
+	height: 100%;
+	font-family: $content-font-family;
+}
+
+*, *:before, *:after {
+	box-sizing: border-box;
+}
+
+.spacer {
+	flex: $spacer-flex;
+}
