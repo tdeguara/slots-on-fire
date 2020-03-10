@@ -4,6 +4,7 @@ import { ResponseBodyType } from '../response-body-type.enum';
 import { Observable, throwError as _throw } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { ServiceError } from '../models';
+import { Router } from '@angular/router';
 
 export abstract class BaseService {
 	/**
@@ -51,6 +52,7 @@ export abstract class BaseService {
 		if (searchParams !== undefined) {
 			options.params = searchParams;
 		} else {
+			// ideally there is some kind of paging parameters as well
 			options.params = new HttpParams()
 				.set('brand', 'cherrycasino.desktop')
 				.set('locale', 'en');
@@ -72,17 +74,7 @@ export abstract class BaseService {
 	 * Function called to handle unexpected errors
 	 */
 	protected handleError(serviceErrors: HttpErrorResponse) {
-		let errors: ServiceError[] = serviceErrors.error as ServiceError[];
-		if (errors !== null && errors !== undefined) {
-			errors.forEach((item) => {
-				item.status = serviceErrors.status;
-			});
-		} else {
-			errors = [];
-			errors.push(new ServiceError(serviceErrors.status, serviceErrors.statusText, 0, undefined));
-		}
-
-		return _throw(errors);
+		return _throw(serviceErrors);
 	}
 
 	/**

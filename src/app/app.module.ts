@@ -6,7 +6,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
-import { GameService } from './shared';
+import { GameService, AppLoaderService } from './shared';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
 	declarations: [
@@ -17,11 +18,13 @@ import { GameService } from './shared';
 	imports: [
 		BrowserModule,
 		AppRoutingModule,
-		HttpClientModule
+		HttpClientModule,
+		FontAwesomeModule
 	],
 	providers: [
-		// providing Game Service throughout the application
-		GameService
+		// providing services throughout the application
+		GameService,
+		AppLoaderService
 	],
 	bootstrap: [AppComponent]
 })

@@ -1,0 +1,50 @@
+.loader-holder {
+	position: relative;
+	width: 38px;
+	height: 38px;
+	margin: 0 auto;
+}
+
+.spinner {
+	-webkit-transform: translate(-50%, -33%) rotate(0);
+	-moz-transform: translate(-50%, -33%) rotate(0);
+	-o-transform: translate(-50%, -33%) rotate(0);
+	transform: translate(-50%, -33%) rotate(0);
+}
+
+.spinner {
+	-webkit-animation: rotate 1s linear infinite;
+	-moz-animation: rotate 1s linear infinite;
+	-o-animation: rotate 1s linear infinite;
+	animation: rotate 1s linear infinite;
+}
+
+@-webkit-keyframes rotate {
+	100% {
+		-webkit-transform: translate(-50%, -33%) rotate(360deg);
+		transform: translate(-50%, -33%) rotate(360deg);
+	}
+}
+
+@-moz-keyframes rotate {
+	100% {
+		-moz-transform: translate(-50%, -33%) rotate(360deg);
+		transform: translate(-50%, -33%) rotate(360deg);
+	}
+}
+
+@-o-keyframes rotate {
+	100% {
+		-o-transform: translate(-50%, -33%) rotate(360deg);
+		transform: translate(-50%, -33%) rotate(360deg);
+	}
+}
+
+@keyframes rotate {
+	100% {
+		-webkit-transform: translate(-50%, -33%) rotate(360deg);
+		-moz-transform: translate(-50%, -33%) rotate(360deg);
+		-o-transform: translate(-50%, -33%) rotate(360deg);
+		transform: translate(-50%, -33%) rotate(360deg);
+	}
+}

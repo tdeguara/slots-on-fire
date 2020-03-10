@@ -3,11 +3,32 @@
 
 <!-- Content -->
 <div class="content" role="main">
+	<div *ngIf="isLoading" class="container-fluid">
+		<div class="row">
+			<div class="col">
+				<div class="loader-holder">
+					<svg class="spinner" width="38" height="38" xmlns="http://www.w3.org/2000/svg">
+						<defs>
+							<linearGradient x1="8%" y1="0%" x2="66%" y2="24%" id="a">
+								<stop stop-color="#444" stop-opacity="0" offset="0%" />
+								<stop stop-color="#444" offset="63%" />
+								<stop stop-color="#444" offset="100%" />
+							</linearGradient>
+						</defs>
+						<g transform="translate(1 1)" fill="none" fill-rule="evenodd">
+							<path d="M36 18C36 8 28 0 18 0" stroke="url(#a)" stroke-width="2">
+							</path>
+							<circle fill="#444" cx="36" cy="18" r="1">
+							</circle>
+						</g>
+					</svg>
+				</div>
+			</div>
+		</div>
 
+	</div>
 
-<router-outlet></router-outlet>
-
-
+	<router-outlet></router-outlet>
 </div>
 
 <!-- Footer -->

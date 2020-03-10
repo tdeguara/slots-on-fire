@@ -1,1 +1,22 @@
-<p>categories works!</p>
+<div style="overflow: hidden;">
+	<div style="float:left; margin: 0 10px;" [ngClass]="{'selected': currentSlug === undefined}"
+		(click)="categoryClick()">
+		All
+	</div>
+	<div *ngFor="let cat of gameCategories" style="float:left; margin: 0 10px;"
+		[ngClass]="{'selected': currentSlug === cat.slug}" (click)="categoryClick(cat.slug)">
+		{{cat.name}}
+	</div>
+	<div style="float:left; margin: 0 10px; color: darkgoldenrod;" (click)="toggleSearch()">
+		<fa-icon [icon]="faSearch" size="md"></fa-icon>
+	</div>
+</div>
+<div *ngIf="showSearch" class="container-fluid">
+	<div class="row">
+		<div class="col-1" (click)="closeSearch()">
+			<fa-icon [icon]="faTimes" size="lg"></fa-icon>
+		</div>
+		<div class="col">
+			<input class="form-control form-control-lg" type="text" placeholder="search" (keyup)="searchKeyUp($event)">
+		</div>
+	</div>
