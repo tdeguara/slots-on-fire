@@ -3,7 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+	production: false,
+	apiUrl: 'https://staging-frontapi.cherrytech.com/' /* this is actually staging not dev, but yeah :D */
 };
 
 /*
