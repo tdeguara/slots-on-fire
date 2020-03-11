@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
-import { GameService, GameCategory } from 'src/app/shared';
+import { GameService, GameCategory, AppLoaderService } from 'src/app/shared';
 import { faSearch, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -16,13 +16,21 @@ export class CategoriesComponent implements OnInit {
 	faTimes = faTimes;
 	showSearch = false;
 
+	isLoading = false;
+
 	constructor(
 		private route: ActivatedRoute,
 		private router: Router,
-		private gameService: GameService
+		private gameService: GameService,
+		private appLoaderService: AppLoaderService
 	) { }
 
 	ngOnInit(): void {
+		// subscribe to loader
+		this.appLoaderService.loadChange.subscribe(ret => {
+			this.isLoading = ret;
+		});
+
 		// get cached categories
 		this.gameService.getCategories().subscribe(
 			res => {

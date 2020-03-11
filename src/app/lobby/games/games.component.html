@@ -1,5 +1,12 @@
-<div style="overflow: hidden;">
-	<div *ngFor="let game of games" style="float:left; margin: 0 10px; padding:50px 15px; background-color: darkcyan;" (click)="gameClick(game.id)">
-		{{game.name}}
+<div class="container-fluid">
+	<div class="row">
+		<div *ngFor="let game of games" class="col-sm-12 col-md-6 col-lg-3" (click)="gameClick(game.id)">
+			<div class="game-card" [ngStyle]="{'background-image':'url(' + game.thumbnail + ')'}">
+				<div class="overlay"></div>
+				<div class="game-name">
+					{{game.name}}
+				</div>
+			</div>
+		</div>
 	</div>
 </div>

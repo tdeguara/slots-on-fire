@@ -2,3 +2,17 @@ $font-family: 'Overpass', sans-serif;
 $logo-font-family: 'Luckiest Guy', cursive;
 
 $spacer-flex: 1;
+
+$game-card-border-radius: 10px;
+$game-card-border: 1px solid #ddd;
+$game-card-box-shadow: 0 0 10px #c5c5c5;
+$game-card-text-shadow: 1px 1px #333;
+$game-card-text-color: #fff;
+$game-card-overlay-bg: #000;
+
+$lobby-category-container-bg: linear-gradient(to top right, #0c2461, #1e3799);
+$lobby-category-container-color: #fff;
+$lobby-category-container-padding: 1em 0;
+$lobby-category-container-font-size: 1.1em;
+$lobby-category-focus-color: #B39B07;
+$lobby-category-search-padding: 0.5em 0;

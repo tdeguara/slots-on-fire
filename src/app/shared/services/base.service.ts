@@ -40,6 +40,9 @@ export abstract class BaseService {
 			for (const tempVal of value) {
 				url += tempVal + '/';
 			}
+
+			// remove last slash
+			url = url.slice(0, -1);
 		}
 
 		const headers = new HttpHeaders()

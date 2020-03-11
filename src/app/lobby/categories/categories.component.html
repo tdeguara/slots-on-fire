@@ -1,22 +1,25 @@
-<div style="overflow: hidden;">
-	<div style="float:left; margin: 0 10px;" [ngClass]="{'selected': currentSlug === undefined}"
-		(click)="categoryClick()">
-		All
-	</div>
-	<div *ngFor="let cat of gameCategories" style="float:left; margin: 0 10px;"
-		[ngClass]="{'selected': currentSlug === cat.slug}" (click)="categoryClick(cat.slug)">
-		{{cat.name}}
-	</div>
-	<div style="float:left; margin: 0 10px; color: darkgoldenrod;" (click)="toggleSearch()">
-		<fa-icon [icon]="faSearch" size="md"></fa-icon>
+<div *ngIf="!isLoading" class="container-fluid padding-top-row">
+	<div class="row justify-content-center">
+		<div class="col-1" [ngClass]="{'selected': currentSlug === undefined}"
+			(click)="categoryClick()">
+			All
+		</div>
+		<div *ngFor="let cat of gameCategories" class="col-1"
+			[ngClass]="{'selected': currentSlug === cat.slug}" (click)="categoryClick(cat.slug)">
+			{{cat.name}}
+		</div>
+		<div class="col-1" (click)="toggleSearch()">
+			<fa-icon [icon]="faSearch" size="md"></fa-icon>
+		</div>
 	</div>
 </div>
-<div *ngIf="showSearch" class="container-fluid">
+<div *ngIf="showSearch" class="container-fluid padding-search">
 	<div class="row">
-		<div class="col-1" (click)="closeSearch()">
+		<div class="col-1" style="text-align: center;" (click)="closeSearch()">
 			<fa-icon [icon]="faTimes" size="lg"></fa-icon>
 		</div>
 		<div class="col">
-			<input class="form-control form-control-lg" type="text" placeholder="search" (keyup)="searchKeyUp($event)">
+			<input class=" form-control form-control-lg" type="text" placeholder="Search" (keyup)="searchKeyUp($event)">
 		</div>
 	</div>
+</div>

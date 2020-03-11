@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
-import { Game, GameService } from '../../shared';
+import { Game, GameService, AppLoaderService } from '../../shared';
 
 @Component({
 	selector: 'app-games',
@@ -13,10 +13,12 @@ export class GamesComponent implements OnInit {
 	constructor(
 		private route: ActivatedRoute,
 		private router: Router,
-		private gameService: GameService
+		private gameService: GameService,
+		private apploaderService: AppLoaderService
 	) { }
 
 	ngOnInit(): void {
+		this.apploaderService.isLoading = true;
 		this.route.paramMap.subscribe((params: ParamMap) => {
 			if (params.has('slug')) {
 				// category is chosen
@@ -25,12 +27,14 @@ export class GamesComponent implements OnInit {
 				this.gameService.getCategory(slug).subscribe(
 					res => {
 						this.games = [...res.games];
+						this.apploaderService.isLoading = false;
 					});
 			} else {
 				// no category - load all games
 				this.gameService.getGames().subscribe(
 					res => {
 						this.games = res;
+						this.apploaderService.isLoading = false;
 					}
 				);
 			}

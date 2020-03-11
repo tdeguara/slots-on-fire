@@ -1,3 +1,48 @@
+@import '../../../global-vars.style.scss';
+
 .selected {
-	color: tomato;
+	color: $lobby-category-focus-color;
+	font-weight: 600;
+}
+
+.container-fluid {
+	background: $lobby-category-container-bg;
+	color: $lobby-category-container-color;
+	font-size: $lobby-category-container-font-size;
+}
+
+.padding-top-row {
+	padding: $lobby-category-container-padding;
+}
+
+.padding-search {
+	padding: $lobby-category-search-padding;
+}
+
+.row {
+	> div {
+		cursor: pointer;
+		transition: 500ms;
+	}
+}
+
+.form-control {
+	border: 0 !important;
+	outline: 0 !important;
+	background: transparent;
+	color: #fff !important;
+
+	&:focus {
+		border: 0 !important;
+		outline: 0 !important;
+	}
+}
+
+:host-context(.no-touch) {
+	.row {
+		> div:hover {
+			color: $lobby-category-focus-color;
+			transform: translate(0, -2px);
+		}
+	}
 }
