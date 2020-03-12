@@ -1,6 +1,7 @@
 <div class="container-fluid">
 	<div class="row">
 		<div *ngFor="let game of games" class="col-sm-12 col-md-6 col-lg-3" (click)="gameClick(game.id)">
+			<!-- higher res images would have been nice -->
 			<div class="game-card" [ngStyle]="{'background-image':'url(' + game.thumbnail + ')'}">
 				<div class="overlay"></div>
 				<div class="game-name">

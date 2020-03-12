@@ -1,1 +1,12 @@
-<p>navbar works!</p>
+<div class="container-fluid">
+	<div class="logo" (click)="goHome()" [@animateLogo]="animateElements">
+	</div>
+	<ul class="nav justify-content-end">
+		<li class="nav-item" [@animateLink1]="animateElements">
+			<a class="nav-link active link" href="#">Register</a>
+		</li>
+		<li class="nav-item" [@animateLink2]="animateElements">
+			<a class="nav-link link" href="#">Login</a>
+		</li>
+	</ul>
+</div>

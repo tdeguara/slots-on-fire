@@ -1,0 +1,42 @@
+@import '../../global-vars.style.scss';
+
+.container-fluid {
+	height: 5em;
+	background-color: #0c2461;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.logo {
+	background: url('../../assets/logo/fire\ .png') no-repeat center;
+	width: 17em;
+	height: 75%;
+	background-size: contain;
+	cursor: pointer;
+	transition: 500ms;
+}
+
+.nav {
+	flex: 1;
+}
+
+.link {
+	color: $link-color !important;
+	transition: 500ms;
+	font-weight: 500 !important;
+}
+
+:host-context(.no-touch) {
+	.logo {
+		&:hover {
+			filter: brightness(80%);
+		}
+	}
+
+	.link {
+		&:hover {
+			color: darken($link-color, 10%) !important;
+		}
+	}
+}

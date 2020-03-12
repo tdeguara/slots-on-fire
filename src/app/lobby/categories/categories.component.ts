@@ -50,7 +50,7 @@ export class CategoriesComponent implements OnInit {
 		if (slug) {
 			this.router.navigate([`casino/category/${slug}`]);
 		} else {
-			this.router.navigate([`casin/lobby`]);
+			this.router.navigate([`casino/lobby`]);
 		}
 	}
 
